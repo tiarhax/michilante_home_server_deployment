@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  permanent_relay:
+    image: tiarhax/michilante_dynamic_rtsp_relay:altest
+    networks:
+      - internal-shared-network
+    env_file: dynamic_relay.env
+    ports:
+      - "${HTTP_PORT}:${DYNAMIC_RELAY_HTTP_PORT}"
+      - "${RTSP_SERVER_PORT}:${DYNAMIC_RELAY_RTSP_PORT}"
+
+  stalechecker:
+    image: tiarhax/stalechecker:latest
+    networks:
+      - internal-shared-network
+    env_file: stalechecker.env
+
+
+networks:
+  internal-shared-network:
+    driver: bridge
