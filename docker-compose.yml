@@ -7,19 +7,10 @@ services:
       wireguard-vpn:
           ipv4_address: 10.14.14.5
       internal-shared-network:
-
-
     env_file: dynamic_relay.env
     ports:
       - "${HTTP_PORT}:${DYNAMIC_RELAY_HTTP_PORT}"
       - "${RTSP_SERVER_PORT}:${DYNAMIC_RELAY_RTSP_PORT}"
-
-  stalechecker:
-    image: tiarhax/michilante_stale_checker:latest
-    networks:
-      - internal-shared-network
-    env_file: stalechecker.env
-
 
 networks:
   internal-shared-network:
