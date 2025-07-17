@@ -11,7 +11,7 @@ services:
       - "${RTSP_SERVER_PORT}:${DYNAMIC_RELAY_RTSP_PORT}"
 
   stalechecker:
-    image: tiarhax/stalechecker:latest
+    image: tiarhax/michilante_stale_checker:latest
     networks:
       - internal-shared-network
     env_file: stalechecker.env
