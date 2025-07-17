@@ -5,7 +5,7 @@ services:
     image: tiarhax/michilante_dynamic_rtsp_relay:latest
     networks:
       wireguard-vpn:
-          ipv4_address: 10.13.13.5
+          ipv4_address: 10.14.14.5
       internal-shared-network:
 
 
@@ -28,4 +28,4 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 10.13.13.0/24
+        - subnet: 10.14.14.0/24
