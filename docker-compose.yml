@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   permanent_relay:
-    image: tiarhax/michilante_dynamic_rtsp_relay:altest
+    image: tiarhax/michilante_dynamic_rtsp_relay:latest
     networks:
       - internal-shared-network
     env_file: dynamic_relay.env
