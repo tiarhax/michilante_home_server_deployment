@@ -5,6 +5,7 @@ services:
     image: tiarhax/michilante_dynamic_rtsp_relay:latest
     networks:
       - internal-shared-network
+      - wireguard-vpn
     env_file: dynamic_relay.env
     ports:
       - "${HTTP_PORT}:${DYNAMIC_RELAY_HTTP_PORT}"
@@ -20,3 +21,8 @@ services:
 networks:
   internal-shared-network:
     driver: bridge
+  wireguard-vpn:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.13.13.0/255
