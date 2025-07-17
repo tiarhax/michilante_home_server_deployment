@@ -4,9 +4,10 @@ services:
   permanent_relay:
     image: tiarhax/michilante_dynamic_rtsp_relay:latest
     networks:
-      - internal-shared-network
-      - wireguard-vpn:
-          ipv4_address: 10.13.13.0/24
+      wireguard-vpn:
+          ipv4_address: 10.13.13.5
+      internal-shared-network:
+
 
     env_file: dynamic_relay.env
     ports:
