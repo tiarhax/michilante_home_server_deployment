@@ -1,22 +1,15 @@
 version: "3.8"
 
 services:
-  permanent_relay:
+  permanent-relay:
     image: tiarhax/michilante_dynamic_rtsp_relay:latest
     networks:
-      wireguard-vpn:
-          ipv4_address: 10.14.14.5
-      internal-shared-network:
+      - internal-shared-network
+      - host-network
     env_file: dynamic_relay.env
-    ports:
-      - "${HTTP_PORT}:${DYNAMIC_RELAY_HTTP_PORT}"
-      - "${RTSP_SERVER_PORT}:${DYNAMIC_RELAY_RTSP_PORT}"
 
 networks:
   internal-shared-network:
     driver: bridge
-  wireguard-vpn:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.14.14.0/24
+  host-network:
+    driver: host
