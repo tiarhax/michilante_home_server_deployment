@@ -4,12 +4,14 @@ services:
   permanent-relay:
     image: tiarhax/michilante_dynamic_rtsp_relay:latest
     networks:
-      - internal-shared-network
       - host-network
-    env_file: dynamic_relay.env
+    env_file: permanent_relay.env
+
+  pinger:
+    image: tiarhax/michilante_pinger
+    networks:
+      - host-network
 
 networks:
-  internal-shared-network:
-    driver: bridge
   host-network:
     driver: host
